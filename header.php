@@ -4,8 +4,6 @@
 <meta http-equiv="content-type" content="text/html; charset=<?php $this->options->charset(); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?php $this->archiveTitle(' &raquo; ', '', ' - '); ?><?php $this->options->title(); ?></title>
-
 <!-- 使用url函数转换相关路径 -->
 <link rel="stylesheet" type="text/css" media="all" href="<?php //$this->options->themeUrl('style.css'); ?>" />
 <link href="<?php $this->options->themeUrl('css/bootstrap/bootstrap.min.css'); ?>" rel="stylesheet" />
