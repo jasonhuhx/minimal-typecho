@@ -1,21 +1,10 @@
 
     <div id="sidebar">
         <div class="row-fluid">
-            
-            <?php if (empty($this->options->sidebarBlock) || in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
-                <div class="span4">
-        			<h4><?php _e('最新文章'); ?></h4>
-                    <ul>
-                        <?php $this->widget('Widget_Contents_Post_Recent')
-                        ->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
-                    </ul>
-        	    </div>
-            <?php endif; ?>
-            
 
-            
+            <div class="span9">
             <?php if (empty($this->options->sidebarBlock) || in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                
                     <h4><?php _e('最近回复'); ?></h4>
                     <ul>
                     <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
@@ -23,13 +12,23 @@
                         <li><a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(50, '...'); ?></li>
                     <?php endwhile; ?>
                     </ul>
-                </div>
             <?php endif; ?>
-            
+            </div> <!-- left section of side bar-->
 
-            
+            <div class="span3">
+                <?php if (empty($this->options->sidebarBlock) || in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
+                        <div>
+                        <h4><?php _e('最新文章'); ?></h4>
+                        <ul>
+                            <?php $this->widget('Widget_Contents_Post_Recent')
+                            ->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
+                        </ul>
+                        </div>
+
+                <?php endif; ?>
+
+
                 <?php if (empty($this->options->sidebarBlock) || in_array('ShowCategory', $this->options->sidebarBlock)): ?>
-                    <div class="span4">
                         <div class="widget">
                             <h4><?php _e('文章分类'); ?></h4>
                             <ul>
@@ -37,19 +36,18 @@
                                 ->parse('<li><a href="{permalink}">{name}</a> ({count})</li>'); ?>
                             </ul>
                         </div>
-                    </div>
                 <?php endif; ?>
             
 
             
                 <?php if (empty($this->options->sidebarBlock) || in_array('ShowArchive', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                    <div>
                     <h4><?php _e('文章归档'); ?></h4>
                     <ul>
                         <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
                         ->parse('<li><a href="{permalink}">{date}</a></li>'); ?>
                     </ul>
-                </div>
+                    </div>
                 <?php endif; ?>
 
 
@@ -68,6 +66,7 @@
                     </ul>
                 </div>
                 <?php endif; ?>
+            </div> <!-- right section of sidebar-->
             </div> <!-- row-fluid end-->
         </div>
 
