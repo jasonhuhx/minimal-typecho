@@ -3,7 +3,7 @@
         <div class="row-fluid">
             
             <?php if (empty($this->options->sidebarBlock) || in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                <div class="span6">
         			<h4><?php _e('最新文章'); ?></h4>
                     <ul>
                         <?php $this->widget('Widget_Contents_Post_Recent')
@@ -15,7 +15,7 @@
 
             
             <?php if (empty($this->options->sidebarBlock) || in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                <div class="span6">
                     <h4><?php _e('最近回复'); ?></h4>
                     <ul>
                     <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
@@ -29,7 +29,7 @@
 
             
                 <?php if (empty($this->options->sidebarBlock) || in_array('ShowCategory', $this->options->sidebarBlock)): ?>
-                    <div class="span4">
+                    <div class="span3">
                         <div class="widget">
                             <h4><?php _e('文章分类'); ?></h4>
                             <ul>
@@ -43,7 +43,7 @@
 
             
                 <?php if (empty($this->options->sidebarBlock) || in_array('ShowArchive', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                <div class="span3">
                     <h4><?php _e('文章归档'); ?></h4>
                     <ul>
                         <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
@@ -54,7 +54,7 @@
 
 
                 <?php if (empty($this->options->sidebarBlock) || in_array('ShowOther', $this->options->sidebarBlock)): ?>
-                <div class="span4">
+                <div class="span3">
                     <h4><?php _e('其它'); ?></h4>
                     <ul>
                         <?php if($this->user->hasLogin()): ?>
